@@ -1,12 +1,6 @@
-import {
-  Dimensions,
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import doctors from "../../assets/images/doctors.jpg";
+import SignInWithOAuth from "../components/SignInWithOAuth";
 
 export default function Login() {
   return (
@@ -27,18 +21,7 @@ export default function Login() {
         <Text style={{ textAlign: "center", marginTop: 20 }}>
           Book appointments effortlessly and manage your health journey
         </Text>
-        <TouchableOpacity
-          style={{
-            padding: 16,
-            backgroundColor: "#075992",
-            borderRadius: 90,
-            alignItems: "center",
-            marginTop: 20,
-            width: Dimensions.get("screen").width * 0.8,
-          }}
-        >
-          <Text style={{ fontSize: 17, color: "#fff" }}>Login with Google</Text>
-        </TouchableOpacity>
+        <SignInWithOAuth />
       </View>
     </View>
   );
