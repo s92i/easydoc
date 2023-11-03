@@ -3,6 +3,7 @@ import * as WebBrowser from "expo-web-browser";
 import { Dimensions, Text, TouchableOpacity } from "react-native";
 import { useOAuth } from "@clerk/clerk-expo";
 import { useWarmUpBrowser } from "../../hooks/warmUpBrowser";
+import Colors from "../../utils/Colors";
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -33,14 +34,16 @@ const SignInWithOAuth = () => {
       onPress={onPress}
       style={{
         padding: 16,
-        backgroundColor: "#075992",
+        backgroundColor: Colors.primary,
         borderRadius: 90,
         alignItems: "center",
         marginTop: 20,
         width: Dimensions.get("screen").width * 0.8,
       }}
     >
-      <Text style={{ fontSize: 17, color: "#fff" }}>Login with Google</Text>
+      <Text style={{ fontSize: 17, color: Colors.white }}>
+        Login with Google
+      </Text>
     </TouchableOpacity>
   );
 };

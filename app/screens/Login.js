@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import doctors from "../../assets/images/doctors.jpg";
 import SignInWithOAuth from "../components/SignInWithOAuth";
+import Colors from "../../utils/Colors";
 
 export default function Login() {
   return (
@@ -8,7 +9,7 @@ export default function Login() {
       <Image source={doctors} style={styles.appImage} />
       <View
         style={{
-          backgroundColor: "#fff",
+          backgroundColor: Colors.white,
           padding: 25,
           alignItems: "center",
           marginTop: -50,
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
     borderRadius: 20,
     borderWidth: 6,
-    borderColor: "#000",
+    borderColor: Colors.black,
   },
   heading: {
     fontSize: 28,
