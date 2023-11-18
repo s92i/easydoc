@@ -1,7 +1,7 @@
 import { SafeAreaView, StatusBar, StyleSheet, Text } from "react-native";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
 import { NavigationContainer } from "@react-navigation/native";
-import Login from "./app/screens/Login";
+import Login from "./app/Screens/Login";
 import TabNavigation from "./app/Navigations/TabNavigation";
 import { NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY } from "@env";
 import Colors from "./utils/Colors";

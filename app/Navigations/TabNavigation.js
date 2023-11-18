@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "../screens/Home";
-import Appointment from "../screens/Appointment";
-import Profile from "../screens/Profile";
+import Home from "../Screens/Home";
+import Appointment from "../Screens/Appointment";
+import Profile from "../Screens/Profile";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();

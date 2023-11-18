@@ -1,21 +1,23 @@
 import { View, FlatList, Image, Dimensions } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import GlobalApi from "../../Services/GlobalApi";
 
 export default function Slider() {
-  const sliderList = [
-    {
-      id: 1,
-      name: "Slider 1",
-      image:
-        "https://hms.harvard.edu/sites/default/files/media/800-Doctors-Talking-GettyImages-1421919753.jpg",
-    },
-    {
-      id: 2,
-      name: "Slider 2",
-      image:
-        "https://cdn.dribbble.com/users/7931944/screenshots/17100454/for_post.png",
-    },
-  ];
+  const [sliderList, setSliderList] = useState();
+
+  useEffect(() => {
+    getSlider();
+  }, []);
+
+  const getSlider = () => {
+    GlobalApi.getSlider()
+      .then((resp) => {
+        setSliderList(resp.data.data);
+      })
+      .catch((error) => {
+        console.error("Axios Error: ", error);
+      });
+  };
 
   return (
     <View style={{ marginTop: 10 }}>
@@ -25,7 +27,7 @@ export default function Slider() {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => (
           <Image
-            source={{ uri: item?.image }}
+            source={{ uri: item?.attributes?.Image?.data?.attributes?.url }}
             style={{
               width: Dimensions.get("screen").width * 0.9,
               height: 170,
