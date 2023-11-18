@@ -5,4 +5,5 @@ export default {
   secondary: "#dbeafe",
   lightGray: "#e6e8eb",
   gray: "#c2c3c4",
+  darkGray: "#a6a4a4",
 };

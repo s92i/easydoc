@@ -2,6 +2,7 @@ import { View, Text, FlatList, Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import GlobalApi from "../../Services/GlobalApi";
 import Colors from "../../../utils/Colors";
+import SubHeader from "./SubHeader";
 
 export default function Categories() {
   const [categoryList, setCategoryList] = useState([]);
@@ -19,25 +20,10 @@ export default function Categories() {
 
   return (
     <View style={{ marginTop: 10 }}>
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Text style={{ fontSize: 20, fontFamily: "appfont-semi" }}>
-          Doctor Speciality
-        </Text>
-        <Text style={{ fontFamily: "appfont", color: Colors.primary }}>
-          See All
-        </Text>
-      </View>
+      <SubHeader title={"Doctor speciality"} />
       <FlatList
         data={categoryList}
         numColumns={4}
-        style={{ marginTop: 5 }}
         columnWrapperStyle={{ flex: 1, justifyContent: "space-between" }}
         renderItem={({ item, index }) =>
           index < 4 && (
