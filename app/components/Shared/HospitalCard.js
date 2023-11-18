@@ -2,6 +2,7 @@ import { View, Text, Image, FlatList } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import Colors from "../../../utils/Colors";
+import HorizontalLine from "./HorizontalLine";
 
 export default function HospitalCard({ hospital }) {
   return (
@@ -35,14 +36,7 @@ export default function HospitalCard({ hospital }) {
             </Text>
           )}
         />
-        <View
-          style={{
-            borderBottomWidth: 1,
-            borderColor: Colors.lightGray,
-            margin: 5,
-            marginBottom: 10,
-          }}
-        />
+        <HorizontalLine />
         <View
           style={{
             display: "flex",
