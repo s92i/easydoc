@@ -1,4 +1,4 @@
-import { SafeAreaView, StatusBar, StyleSheet, Text } from "react-native";
+import { SafeAreaView, StatusBar, StyleSheet } from "react-native";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
 import { NavigationContainer } from "@react-navigation/native";
 import Login from "./app/Screens/Login";

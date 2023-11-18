@@ -20,7 +20,7 @@ export default function PremiumHospitals() {
   };
   return (
     <View style={{ marginTop: 10 }}>
-      <SubHeader title={"Our premium hospitals"} />
+      <SubHeader title="Our premium hospitals" />
       <FlatList
         data={hospitalList}
         horizontal

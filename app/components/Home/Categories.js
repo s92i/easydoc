@@ -23,7 +23,7 @@ export default function Categories() {
 
   return (
     <View style={{ marginTop: 10 }}>
-      <SubHeader title={"Doctor speciality"} />
+      <SubHeader title="Doctor speciality" />
       <FlatList
         data={categoryList}
         numColumns={4}

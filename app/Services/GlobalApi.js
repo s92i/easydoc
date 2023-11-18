@@ -12,5 +12,14 @@ const getSlider = () => AxiosInstance.get("/sliders?populate=*");
 const getCategories = () => AxiosInstance.get("/categories?populate=*");
 const getPremiumHospitals = () =>
   AxiosInstance.get("/hospitals?filters[Premium][$eq]=true&populate=*");
+const getHospitalsByCategory = (category) =>
+  AxiosInstance.get(
+    "/hospitals?filters[categories][Name][$in]=" + category + "&populate=*"
+  );
 
-export default { getSlider, getCategories, getPremiumHospitals };
+export default {
+  getSlider,
+  getCategories,
+  getPremiumHospitals,
+  getHospitalsByCategory,
+};
