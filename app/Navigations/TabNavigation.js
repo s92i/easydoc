@@ -1,8 +1,8 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from "../Screens/Home";
 import Appointment from "../Screens/Appointment";
 import Profile from "../Screens/Profile";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
+import HomeNavigation from "./HomeNavigation";
 
 const Tab = createBottomTabNavigator();
 
@@ -11,7 +11,7 @@ export default function TabNavigation() {
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={HomeNavigation}
         options={{
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" size={size} color={color} />

@@ -1,11 +1,14 @@
-import { View, Text, FlatList, Image } from "react-native";
+import { View, Text, FlatList, Image, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import GlobalApi from "../../Services/GlobalApi";
 import Colors from "../../../utils/Colors";
 import SubHeader from "./SubHeader";
 
 export default function Categories() {
+  const navigation = useNavigation();
   const [categoryList, setCategoryList] = useState([]);
+
   useEffect(() => {
     getCategories();
   }, []);
@@ -27,7 +30,14 @@ export default function Categories() {
         columnWrapperStyle={{ flex: 1, justifyContent: "space-between" }}
         renderItem={({ item, index }) =>
           index < 4 && (
-            <View style={{ alignItems: "center" }}>
+            <TouchableOpacity
+              style={{ alignItems: "center" }}
+              onPress={() =>
+                navigation.navigate("hospital-doctor-list-screen", {
+                  categoryName: item?.attributes?.Name,
+                })
+              }
+            >
               <View
                 style={{
                   backgroundColor: Colors.secondary,
@@ -43,7 +53,7 @@ export default function Categories() {
                 />
               </View>
               <Text>{item?.attributes?.Name}</Text>
-            </View>
+            </TouchableOpacity>
           )
         }
       />
