@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { ScrollView } from "react-native";
 import React from "react";
 import { useRoute } from "@react-navigation/native";
 import BookingInfo from "../components/Book/BookingInfo";
@@ -10,11 +10,11 @@ export default function Book() {
   const param = useRoute().params;
 
   return (
-    <View style={{ padding: 20 }}>
+    <ScrollView style={{ padding: 20 }}>
       <BookingInfo hospital={param?.hospital} />
       <ActionButton />
       <HorizontalLine />
-      <Booking />
-    </View>
+      <Booking hospital={param?.hospital} />
+    </ScrollView>
   );
 }

@@ -16,10 +16,12 @@ const getHospitalsByCategory = (category) =>
   AxiosInstance.get(
     "/hospitals?filters[categories][Name][$in]=" + category + "&populate=*"
   );
+const createAppointment = (data) => AxiosInstance.post("/appointments", data);
 
 export default {
   getSlider,
   getCategories,
   getPremiumHospitals,
   getHospitalsByCategory,
+  createAppointment,
 };
