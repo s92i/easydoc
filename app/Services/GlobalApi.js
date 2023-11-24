@@ -2,7 +2,7 @@ import axios from "axios";
 import { STRAPI_API_KEY } from "@env";
 
 const AxiosInstance = axios.create({
-  baseURL: "http://192.168.1.4:1337/api",
+  baseURL: "http://192.168.1.7:1337/api",
   headers: {
     Authorization: "Bearer " + STRAPI_API_KEY,
   },
@@ -16,7 +16,13 @@ const getHospitalsByCategory = (category) =>
   AxiosInstance.get(
     "/hospitals?filters[categories][Name][$in]=" + category + "&populate=*"
   );
+const getDoctorsByCategory = (category) =>
+  AxiosInstance.get(
+    "/doctors?filters[categories][Name][$in]=" + category + "&populate=*"
+  );
 const createAppointment = (data) => AxiosInstance.post("/appointments", data);
+const getHospitals = () => AxiosInstance.get("/hospitals?populate=*");
+const getDoctors = () => AxiosInstance.get("/doctors?populate=*");
 
 export default {
   getSlider,
@@ -24,4 +30,7 @@ export default {
   getPremiumHospitals,
   getHospitalsByCategory,
   createAppointment,
+  getDoctorsByCategory,
+  getHospitals,
+  getDoctors,
 };

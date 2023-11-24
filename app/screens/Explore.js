@@ -1,40 +1,35 @@
-import { ActivityIndicator, View, Text } from "react-native";
+import { View, Text, ActivityIndicator } from "react-native";
 import React, { useEffect, useState } from "react";
-import { useRoute } from "@react-navigation/native";
-import PageHeader from "../components/Shared/PageHeader";
 import HospitalDoctorTab from "../components/Hospitals/HospitalDoctorTab";
 import HospitalList from "../components/Hospitals/HospitalList";
+import DoctorCardItem from "../components/Shared/DoctorCardItem";
 import GlobalApi from "../Services/GlobalApi";
 import Colors from "../../utils/Colors";
-import DoctorCardItem from "../components/Shared/DoctorCardItem";
 
-export default function HospitalDoctorsListScreen() {
+export default function Explore() {
   const [hospital, setHospital] = useState([]);
   const [doctor, setDoctor] = useState([]);
   const [activeTab, setActiveTab] = useState("Hospitals");
-  const param = useRoute().params;
 
   useEffect(() => {
-    activeTab == "Hospitals"
-      ? getHospitalsByCategory()
-      : getDoctorsByCategory();
+    activeTab == "Hospitals" ? getHospitals() : getDoctors();
   }, [activeTab]);
 
-  const getHospitalsByCategory = () => {
-    GlobalApi.getHospitalsByCategory(param?.categoryName).then((resp) => {
+  const getHospitals = () => {
+    GlobalApi.getHospitals().then((resp) => {
       setHospital(resp.data.data);
     });
   };
 
-  const getDoctorsByCategory = () => {
-    GlobalApi.getDoctorsByCategory(param?.categoryName).then((resp) => {
+  const getDoctors = () => {
+    GlobalApi.getDoctors().then((resp) => {
       setDoctor(resp.data.data);
     });
   };
 
   return (
     <View style={{ padding: 20 }}>
-      <PageHeader title={param?.categoryName} />
+      <Text style={{ fontSize: 26, fontFamily: "appfont-semi" }}>Explore</Text>
       <HospitalDoctorTab activeTab={(value) => setActiveTab(value)} />
       {!hospital?.length ? (
         <ActivityIndicator
