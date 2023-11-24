@@ -23,6 +23,11 @@ const getDoctorsByCategory = (category) =>
 const createAppointment = (data) => AxiosInstance.post("/appointments", data);
 const getHospitals = () => AxiosInstance.get("/hospitals?populate=*");
 const getDoctors = () => AxiosInstance.get("/doctors?populate=*");
+const getAppointments = (email) => {
+  AxiosInstance.get(
+    "/appointments?filters[email][$eq]=" + email + "&populate=*"
+  );
+};
 
 export default {
   getSlider,
@@ -33,4 +38,5 @@ export default {
   getDoctorsByCategory,
   getHospitals,
   getDoctors,
+  getAppointments,
 };

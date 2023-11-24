@@ -3,7 +3,7 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-export default function PageHeader({ title }) {
+export default function PageHeader({ title, backBtn = true }) {
   const navigation = useNavigation();
   return (
     <View
@@ -14,9 +14,11 @@ export default function PageHeader({ title }) {
         alignItems: "center",
       }}
     >
-      <TouchableOpacity onPress={() => navigation.goBack()}>
-        <Ionicons name="arrow-back-circle-outline" size={37} color="black" />
-      </TouchableOpacity>
+      {backBtn && (
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Ionicons name="arrow-back-circle-outline" size={37} color="black" />
+        </TouchableOpacity>
+      )}
       <Text style={{ fontFamily: "appfont-semi", fontSize: 25 }}>{title}</Text>
     </View>
   );
